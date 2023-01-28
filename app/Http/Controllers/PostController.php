@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
+use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -19,12 +21,5 @@ class PostController extends Controller
           'post' => $post
       ]);
     }
-    public function create(){
-        if(auth()->guest()){
-            abort(Response::HTTP_FORBIDDEN);
-        }
-        return view('post.create', [
-
-        ]);
-    }
+    
 }

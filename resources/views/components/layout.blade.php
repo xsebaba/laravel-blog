@@ -1,6 +1,6 @@
 <!doctype html>
 <head>
-    <title>Laravel From Scratch Blog</title>
+    <title>Laravel  Blog</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -20,13 +20,22 @@
 
             <div class="mt-8 md:mt-0 flex items-center">
                 @auth
-                    <span class="text-xs font-bold uppercase">Welcome back {{auth()->user()->name}}</span>
-                    <div class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
-                        <form method="POST" action="/logout">
+                    <x-dropdown>
+                        <x-slot name="trigger">
+                            <button class="text-xs font-bold uppercase">
+                                Welcome back {{auth()->user()->name}}
+                            </button>
+                        </x-slot>
+                        <x-dropdown-item href="/admin/posts/create" class="text-center">New Post </x-dropdown-item>
+                        <x-dropdown-item href="/admin/posts" class="text-center">Dashboard </x-dropdown-item>
+                        <x-dropdown-item class="text-center" href="#" onclick="clickButton()"> Log out 
+                        <form method="POST" id="logout" action="/logout" class="hidden" >
                             @csrf
-                            <button type="submit" class="uppercase font-semibold">Logout</button>
                         </form>
-                    </div>
+                        </x-dropdown-item>
+                        
+                    </x-dropdown>
+        
                 @else
                     <a href="/register" class="text-xs font-bold uppercase">Register</a>
                     <a href="/login" class="text-xs font-bold uppercase ml-2">Login</a>
@@ -81,9 +90,24 @@
             </div>
         </footer>
     </section>
+
     @if(session()->has('success'))
-        <div class="fixed bottom-3 right-3 bg-green-500 text-white py-2 px-4 rounded-xl text-sm">
+        <div id="success" class="fixed bottom-3 right-3 bg-green-500 text-white py-2 px-4 rounded-xl text-sm">
             <p>{{session('success')}}</p>
         </div>
+
+        <script>
+            setTimeout(() =>{
+                const success = document.getElementById('success');
+                success.style.display = 'none';
+            }, 3500);
+        </script>
     @endif
+
+    <script>
+        function clickButton() {
+            document.getElementById("logout").submit();
+        }
+
+    </script>
 </body>
