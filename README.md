@@ -2,20 +2,20 @@
 
 <p>Hi, this is a smple CMS system provided as a blog. </p>
 
-#Instalation
+<b>Instalation.</b>
 ```
 git clone <repository url>
 composer install
 cp .env.example .env
 ```
-#Then create the necessary database.
+<b>Then create the necessary database.</b>
 
 ```
 php artisan db
 create database blog
 ```
 
-#And run the migrations and seedings
+<b>And run the migrations and seedings.</b>
 
 ```
 php artisan migrate --seed
