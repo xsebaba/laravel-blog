@@ -1,9 +1,9 @@
 @props(['post'])
 <article
-{{$attributes->merge(['class' =>'transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl'])}}>
+{{$attributes->merge(['class' =>'bg-gray-50 mt-2 mr-1 transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl'])}}>
     <div class="py-6 px-5">
         <div>
-            <img src="{{asset('storage/' . $post->thumbnail)}}" alt="Blog Post illustration" class="rounded-xl">
+            <img src="{{asset('storage/' . $post->thumbnail)}}" alt="Blog Post illustration" class="rounded-xl max-h-72">
         </div>
 
         <div class="mt-8 flex flex-col justify-between">
@@ -16,7 +16,7 @@
                 <div class="mt-4">
 
 
-                      <a href="/posts/{{$post->slug}}"
+                      <a href="/posts/{{$post->slug}}">
                       <h1 class="text-3xl">
                       {{$post->title}} </h1> </a>
 
@@ -35,7 +35,7 @@
 
             <footer class="flex justify-between items-center mt-8">
                 <div class="flex items-center text-sm">
-                    <img src="/images/lary-avatar.svg" alt="Lary avatar">
+                    <img class="rounded-full max-h-8" src="/images/lary-avatar.png" alt="avatar">
                     <div class="ml-3">
                         <h5 class="font-bold">
                         <a href="/?author={{$post->author->username}}"> {{$post->author->name}}</a>

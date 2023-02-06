@@ -18,6 +18,7 @@ class RegisterController extends Controller
             'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|min:7|max:255'
         ]);
+        $attributes['avatar'] = "avatars/lary-avatar.png";
         $user=User::create($attributes);
         auth()->login($user);
 

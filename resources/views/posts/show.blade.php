@@ -60,7 +60,7 @@
                         <x-panel>
                         @csrf 
                         <header class="flex">
-                            <img src="https://i.pravatar.cc/60" width="40" height="40" class="rounded-full">
+                            <img src="{{asset('storage/' . auth()->user()->avatar)}}" width="40" height="40" class="rounded-full">
                             <h2 class="ml-4">Want to participate in discussion?</h2>
                         </header>
                         <div class="mt-6">
