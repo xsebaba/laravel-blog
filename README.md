@@ -1,3 +1,3 @@
-<p align="center"><h2>Laravel Blog</h2></p>
+<h2 align="center">Laravel Blog</h2></p>
 
 
