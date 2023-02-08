@@ -17,6 +17,7 @@ Route::post('newsletter', NewsletterController::class);
 Route::get('user/{user:username}', [UserController::class, 'show'])->middleware('auth');
 Route::get('user/avatar/{user:username}', [UserController::class, 'edit'])->middleware('auth');
 Route::patch('user/avatar/{user:username}', [UserController::class, 'update'])->middleware('auth');
+Route::delete('user/{user:username}', [UserController::class, 'destroy'])->middleware('auth');
 
 
 Route::get('posts/{post:slug}', [PostController::class, 'show']);

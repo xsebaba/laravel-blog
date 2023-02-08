@@ -31,4 +31,14 @@ class UserController extends Controller
     
             return back()->with('success', 'Avatar updated');
     }
+
+    public function destroy(User $user){
+
+        auth()->logout();
+        $user->delete();
+        
+
+        return redirect('/')->with('success', 'Your profile has been deleted');
+      
+    }
 }

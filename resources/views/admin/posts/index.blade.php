@@ -55,16 +55,21 @@
             </div>
         </main>
     </div>
-<div class="fixed right-1/3 left-1/3 content-center">
-    <div id="confirm" style="display: none;"class=" max-w-sm max-h-fit p-1 bg-indigo-200 rounded-lg text-center">
-        <div class="mb-2"> Do you want to delete the post {{$post->title}}?</div>
-        <div>
-        <form method="POST" id="form" action="/admin/posts/{{$post->id}}">
-                @csrf
-                @method('DELETE')
-            <button type="submit" class="bg-red-400 text-white rounded py-1 px-4 hover:bg-red-500"> Yes  </button>
-        </form>
-            <button onclick="document.getElementById('confirm').style.display='none'" class="bg-blue-400 text-white rounded py-1 px-4 hover:bg-blue-500">  No </button>
+<div class="fixed right-1/3 left-1/3 top-1/2 bottom-1/2 content-center">
+    <div id="confirm" style="display: none;"class="shadow-2xl border-solid border-2 border-red-600 max-w-sm max-h-fit p-1 bg-indigo-200 rounded-lg text-center">
+        <div class=" mt-2"> Do you want to delete the post {{$post->title}}?</div>
+            <div class="grid grid-cols-2 grid-rows-1 mb-10 mt-10">
+                <div>
+                    <form method="POST" id="form" action="/admin/posts/{{$post->id}}">
+                            @csrf
+                            @method('DELETE')
+                        <button type="submit" class="bg-red-400 text-white rounded py-3 px-8 hover:bg-red-500"> Yes  </button>
+                    </form>
+                </div>
+                <div>
+                    <button onclick="document.getElementById('confirm').style.display='none'" class="bg-blue-400 text-white rounded py-3 px-8 hover:bg-blue-500">  No </button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

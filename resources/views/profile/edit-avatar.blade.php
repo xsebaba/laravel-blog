@@ -15,7 +15,7 @@
                 </div>
             <ul>
                 <li>
-                    <a href="/user/avatar/{{$user->username}}" class="{{ request()->is('user/avatar') ? 'text-blue-500' : '' }} mt-2">Change your avatar  </a>
+                    <a href="/user/avatar/{{$user->username}}" class="text-blue-600 mt-2">Change your avatar  </a>
                 </li>
                 <li>
                     <a href="/user/delete"> Delete your profile </a>
