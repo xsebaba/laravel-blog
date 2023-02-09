@@ -4,6 +4,12 @@
         
         <main class="max-w-lg mx-auto">
             <h1 class="text-center font-bold text-xl mb-10">Login</h1>  
+            @if (session('error'))
+                <div class="mb-4 font-medium text-sm text-red-600">
+                    {{ session('error') }}.
+                    Contact with administrator
+                </div>
+            @endif
             <form method="POST" action="/sessions">
                 @csrf
       
